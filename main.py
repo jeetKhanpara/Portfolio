@@ -20,6 +20,11 @@ templates = Jinja2Templates(directory="templates")
 
 # Resend configuration
 resend.api_key = os.getenv("RESEND_API_KEY")
+if resend.api_key:
+    # Only show first 5 and last 5 characters of API key for security
+    print(f"Using Resend API key: {resend.api_key[:5]}...{resend.api_key[-5:]}")
+else:
+    print("No Resend API key found!")
 
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
@@ -67,9 +72,15 @@ async def contact_post(
             """
         }
         
-        print("Sending email with params:", params)
+        print("\nAttempting to send email:")
+        print(f"From: {params['from']}")
+        print(f"To: {params['to']}")
+        print(f"Subject: {params['subject']}")
+        print(f"Using API key: {resend.api_key[:5]}...{resend.api_key[-5:]}")
+        
         result = resend.Emails.send(params)
-        print("Email sent successfully:", result)
+        print("\nEmail sent successfully!")
+        print(f"Response from Resend: {result}")
 
         return RedirectResponse(
             url="/contact?message=Message sent successfully!&message_type=success",
