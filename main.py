@@ -56,7 +56,7 @@ async def contact_post(
         # Create and send email using Resend
         params = {
             "from": "onboarding@resend.dev",
-            "to": "jeet213khanpara@gmail.com",
+            "to": "mlearner2721@gmail.com",
             "subject": f"Portfolio Contact: {subject}",
             "html": f"""
             <h2>New message from your portfolio website</h2>
