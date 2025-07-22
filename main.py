@@ -6,6 +6,11 @@ import os
 from typing import Optional
 import resend
 from dotenv import load_dotenv
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # Load environment variables
 load_dotenv()
@@ -20,11 +25,9 @@ templates = Jinja2Templates(directory="templates")
 
 # Resend configuration
 resend.api_key = os.getenv("RESEND_API_KEY")
+logger.info(f"API Key loaded: {'Yes' if resend.api_key else 'No'}")
 if resend.api_key:
-    # Only show first 5 and last 5 characters of API key for security
-    print(f"Using Resend API key: {resend.api_key[:5]}...{resend.api_key[-5:]}")
-else:
-    print("No Resend API key found!")
+    logger.info(f"Using API key ending in: ...{resend.api_key[-5:]}")
 
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
@@ -55,6 +58,7 @@ async def contact_post(
 ):
     try:
         if not resend.api_key:
+            logger.error("No Resend API key found!")
             raise ValueError("Resend API key is not set")
 
         # Create and send email using Resend
@@ -71,16 +75,14 @@ async def contact_post(
             <p>{message}</p>
             """
         }
-        
-        print("\nAttempting to send email:")
-        print(f"From: {params['from']}")
-        print(f"To: {params['to']}")
-        print(f"Subject: {params['subject']}")
-        print(f"Using API key: {resend.api_key[:5]}...{resend.api_key[-5:]}")
-        
+
+        logger.info("Attempting to send email:")
+        logger.info(f"From: {params['from']}")
+        logger.info(f"To: {params['to']}")
+        logger.info(f"Subject: {params['subject']}")
+
         result = resend.Emails.send(params)
-        print("\nEmail sent successfully!")
-        print(f"Response from Resend: {result}")
+        logger.info(f"Email sent successfully! Response: {result}")
 
         return RedirectResponse(
             url="/contact?message=Message sent successfully!&message_type=success",
@@ -88,7 +90,7 @@ async def contact_post(
         )
     except Exception as e:
         error_msg = str(e)
-        print(f"Error sending email: {error_msg}")
+        logger.error(f"Error sending email: {error_msg}")
         return RedirectResponse(
             url=f"/contact?message=Failed to send message: {error_msg}&message_type=error",
             status_code=303
