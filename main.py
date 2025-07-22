@@ -20,9 +20,6 @@ templates = Jinja2Templates(directory="templates")
 
 # Resend configuration
 resend.api_key = os.getenv("RESEND_API_KEY")
-print(f"API Key loaded: {'Yes' if resend.api_key else 'No'}")
-if resend.api_key:
-    print(f"Using API key: {resend.api_key[:5]}...{resend.api_key[-5:]}")  # Print first and last 5 chars of API key
 
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
@@ -85,7 +82,6 @@ async def contact_post(
             url=f"/contact?message=Failed to send message: {error_msg}&message_type=error",
             status_code=303
         )
-
 # Remove the uvicorn run command as Vercel will handle this
 # if __name__ == "__main__":
 #     import uvicorn
