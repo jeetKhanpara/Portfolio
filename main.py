@@ -56,22 +56,33 @@ async def contact_post(
             raise ValueError("Resend API key is not set")
 
         # Create and send email using Resend
-        params = {
-            "from": "onboarding@resend.dev",
-            "to": ["mlearner2721@gmail.com"],  # Using array format and only this email
-            "subject": f"Portfolio Contact: {subject}",
+        # Create a completely new email configuration
+        email_data = {
+            "from": f"Portfolio Contact Form <onboarding@resend.dev>",
+            "to": [f"MLearner <mlearner2721@gmail.com>"],
+            "reply_to": email,
+            "subject": f"New Contact: {subject}",
             "html": f"""
-            <h2>New message from your portfolio website</h2>
-            <p><strong>Name:</strong> {name}</p>
-            <p><strong>Email:</strong> {email}</p>
-            <p><strong>Subject:</strong> {subject}</p>
-            <h3>Message:</h3>
-            <p>{message}</p>
+            <div style="font-family: Arial, sans-serif;">
+                <h2>New Portfolio Contact Message</h2>
+                <div style="margin: 20px 0;">
+                    <p><strong>From:</strong> {name}</p>
+                    <p><strong>Email:</strong> {email}</p>
+                    <p><strong>Subject:</strong> {subject}</p>
+                    <hr style="border: 1px solid #eee; margin: 20px 0;">
+                    <h3>Message:</h3>
+                    <p>{message}</p>
+                </div>
+                <p style="color: #666; font-size: 12px;">Sent from your portfolio contact form</p>
+            </div>
             """
         }
         
-        print("Sending email with params:", params)
-        result = resend.Emails.send(params)
+        print("Attempting to send email with new configuration...")
+        print(f"Using API key ending in: ...{resend.api_key[-5:]}")
+        print(f"Sending to: {email_data['to']}")
+        
+        result = resend.Emails.send(email_data)
         print("Email sent successfully:", result)
 
         return RedirectResponse(
@@ -86,4 +97,7 @@ async def contact_post(
             status_code=303
         )
 
-# Remove the uvicorn run command as Vercel will handle this 
+# Remove the uvicorn run command as Vercel will handle this
+# if __name__ == "__main__":
+#     import uvicorn
+#     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
