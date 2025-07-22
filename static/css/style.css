@@ -26,7 +26,7 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1rem;
 }
 
 /* Navigation */
@@ -672,59 +672,228 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    /* Navigation */
+    .nav-container {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .nav-logo {
+        margin-bottom: 1rem;
+    }
+
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 2rem 1rem;
+        min-height: auto;
+    }
+
     .hero-content {
         grid-template-columns: 1fr;
         gap: 2rem;
         text-align: center;
+        padding: 1rem;
     }
-    
+
     .hero-title {
         font-size: 2rem;
     }
-    
-    .nav-menu {
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        padding: 0;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
         gap: 1rem;
     }
-    
-    .nav-link {
+
+    .btn {
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
+    }
+
+    /* Code Block */
+    .code-block {
+        margin: 1rem 0;
+    }
+
+    .code-content {
+        padding: 1rem;
         font-size: 0.8rem;
     }
-    
-    .skill-card {
-        width: 130px;
-        padding: 0.8rem;
-    }
-    
-    .skill-icon {
-        font-size: 1.5rem;
-    }
-    
-    .skill-card h4 {
-        font-size: 0.9rem;
-    }
-    
-    .skill-card p {
-        font-size: 0.7rem;
-    }
-    
 
-    
+    /* Skills Section */
+    .skills-preview {
+        padding: 2rem 1rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
+    .skills-grid {
+        gap: 1rem;
+        justify-content: center;
+    }
+
+    .skill-card {
+        width: calc(50% - 1rem);
+        min-width: 140px;
+        max-width: 160px;
+        padding: 1rem;
+    }
+
+    /* About Page */
+    .about-hero, 
+    .projects-hero, 
+    .contact-hero {
+        padding: 2rem 1rem;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+
     .about-grid,
     .contact-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
+        padding: 1rem 0;
     }
-    
+
+    .about-section {
+        text-align: left;
+    }
+
+    .skills-detailed {
+        padding: 1.5rem;
+    }
+
+    .skill-category {
+        margin-bottom: 1.5rem;
+    }
+
+    .skill-tags {
+        margin-left: 1rem;
+    }
+
+    /* Projects Page */
     .projects-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
-    
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
+
+    .project-card {
+        padding: 1.5rem;
     }
-    
-    .skill-tags {
-        justify-content: center;
+
+    .project-header h3 {
+        font-size: 1.2rem;
+    }
+
+    /* Contact Page */
+    .contact-form-section {
+        padding: 1rem 0;
+    }
+
+    .form-group {
+        margin-bottom: 1.2rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 0.8rem;
+    }
+
+    .contact-methods {
+        padding: 1rem 0;
+    }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 0.8rem;
+    }
+
+    .nav-container {
+        padding: 0.8rem;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .code-comment {
+        font-size: 1.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .hero-description {
+        font-size: 0.9rem;
+    }
+
+    .skill-card {
+        width: calc(100% - 1rem);
+        max-width: 200px;
+    }
+
+    .page-title {
+        font-size: 1.8rem;
+    }
+
+    .section-heading {
+        font-size: 1.3rem;
+    }
+
+    .project-card {
+        padding: 1.2rem;
+    }
+
+    .project-header h3 {
+        font-size: 1.1rem;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+    }
+
+    .contact-item {
+        font-size: 0.9rem;
+    }
+
+    .footer {
+        padding: 1.5rem 1rem;
+    }
+
+    .footer-content p {
+        font-size: 0.8rem;
     }
 } 
