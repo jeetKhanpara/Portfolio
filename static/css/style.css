@@ -1,0 +1,730 @@
+:root {
+    --python-blue: #3776ab;
+    --python-yellow: #ffd43b;
+    --dark-bg: #1a1a1a;
+    --darker-bg: #0f0f0f;
+    --light-text: #e0e0e0;
+    --muted-text: #a0a0a0;
+    --accent-green: #4ade80;
+    --accent-purple: #a855f7;
+    --border-color: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Navigation */
+.navbar {
+    background-color: var(--darker-bg);
+    border-bottom: 1px solid var(--border-color);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.nav-logo a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo-bracket {
+    color: var(--python-yellow);
+}
+
+.logo-name {
+    color: var(--python-blue);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--light-text);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--python-yellow);
+}
+
+/* Main Content */
+.main-content {
+    margin-top: 80px;
+    min-height: calc(100vh - 160px);
+}
+
+/* Hero Section */
+.hero {
+    padding: 4rem 2rem;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.code-comment {
+    color: var(--muted-text);
+    font-size: 1.5rem;
+}
+
+.highlight {
+    color: var(--python-yellow);
+}
+
+.hero-subtitle {
+    color: var(--python-blue);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-description {
+    color: var(--muted-text);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--python-blue);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #2d5f87;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--python-yellow);
+    border: 2px solid var(--python-yellow);
+}
+
+.btn-secondary:hover {
+    background-color: var(--python-yellow);
+    color: var(--dark-bg);
+}
+
+/* Code Block */
+.code-block {
+    background-color: var(--darker-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.code-header {
+    background-color: var(--border-color);
+    padding: 0.5rem 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    color: var(--muted-text);
+}
+
+.code-content {
+    padding: 1.5rem;
+}
+
+.code-content pre {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.keyword { color: #ff7b72; }
+.class-name { color: var(--accent-green); }
+.function { color: var(--accent-purple); }
+.string { color: var(--python-yellow); }
+.number { color: #79c0ff; }
+.param { color: #ffa657; }
+.decorator { color: #ff7b72; }
+
+/* Skills Preview */
+.skills-preview {
+    padding: 4rem 2rem;
+    background-color: var(--darker-bg);
+}
+
+
+
+
+
+.section-title {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--python-yellow);
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.skills-grid {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    flex-wrap: wrap;
+}
+
+.skill-card {
+    background-color: var(--dark-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1rem;
+    text-align: center;
+    width: 150px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--python-blue);
+}
+
+.skill-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.skill-card h4 {
+    color: var(--python-blue);
+    margin-bottom: 0.3rem;
+    font-size: 1rem;
+}
+
+.skill-card p {
+    color: var(--muted-text);
+    font-size: 0.8rem;
+    line-height: 1.3;
+}
+
+/* Page Layouts */
+.page-title {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--python-yellow);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.page-subtitle {
+    color: var(--muted-text);
+    font-size: 1.2rem;
+}
+
+.about-hero, .projects-hero, .contact-hero {
+    padding: 4rem 2rem 2rem;
+    text-align: center;
+}
+
+/* About Page */
+.about-content {
+    padding: 2rem;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+.section-heading {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--python-blue);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-section {
+    margin-bottom: 3rem;
+}
+
+.about-section p {
+    color: var(--light-text);
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+.experience-duration {
+    color: var(--python-yellow);
+    font-family: 'JetBrains Mono', monospace;
+    margin-bottom: 1rem;
+}
+
+.experience-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.experience-list li {
+    color: var(--muted-text);
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.experience-list li::before {
+    content: "▶";
+    color: var(--python-yellow);
+    position: absolute;
+    left: 0;
+}
+
+/* Skills Detailed */
+.skills-detailed {
+    background-color: var(--darker-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+.skill-category {
+    margin-bottom: 2rem;
+}
+
+.skill-category h4 {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent-green);
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+.skill-tag {
+    color: var(--python-yellow);
+    font-size: 0.9rem;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.comma {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--light-text);
+    margin-right: 0.5rem;
+}
+
+.array-close {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent-green);
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.closing-bracket {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent-green);
+    font-size: 1.2rem;
+}
+
+/* Fun Facts */
+.fun-facts {
+    padding: 4rem 2rem;
+    background-color: var(--darker-bg);
+}
+
+.facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.fact-card {
+    background-color: var(--dark-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.fact-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Projects Page */
+.projects-content {
+    padding: 2rem;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.project-card {
+    background-color: var(--darker-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--python-blue);
+}
+
+.project-header {
+    margin-bottom: 1.5rem;
+}
+
+.project-header h3 {
+    color: var(--python-yellow);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    background-color: var(--python-blue);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.project-description {
+    color: var(--light-text);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.project-features h4 {
+    color: var(--python-blue);
+    margin-bottom: 0.5rem;
+}
+
+.project-features ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+}
+
+.project-features li {
+    color: var(--muted-text);
+    margin-bottom: 0.3rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.project-features li::before {
+    content: "•";
+    color: var(--python-yellow);
+    position: absolute;
+    left: 0;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.project-link {
+    color: var(--python-blue);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.project-link:hover {
+    color: var(--python-yellow);
+}
+
+/* Code Showcase */
+.code-showcase {
+    padding: 4rem 2rem;
+    background-color: var(--darker-bg);
+}
+
+/* Contact Page */
+.contact-content {
+    padding: 2rem;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+.contact-section {
+    margin-bottom: 3rem;
+}
+
+.contact-section p {
+    color: var(--light-text);
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+.contact-heading {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent-green);
+    margin-bottom: 1rem;
+}
+
+.contact-item {
+    margin-bottom: 0.8rem;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.contact-key {
+    color: var(--python-blue);
+}
+
+.contact-value {
+    color: var(--python-yellow);
+    text-decoration: none;
+}
+
+.contact-value:hover {
+    color: var(--accent-green);
+}
+
+/* Contact Form */
+.contact-form {
+    padding: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.form-group label {
+    color: var(--python-blue);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    background-color: var(--dark-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 0.75rem;
+    color: var(--light-text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--python-blue);
+}
+
+.textarea-close {
+    color: var(--python-blue);
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.alert {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.alert.success {
+    background-color: rgba(74, 222, 128, 0.1);
+    border: 1px solid var(--accent-green);
+    color: var(--accent-green);
+}
+
+.alert.error {
+    background-color: rgba(255, 86, 86, 0.1);
+    border: 1px solid #ff5656;
+    color: #ff5656;
+}
+
+/* Availability */
+.availability {
+    padding: 4rem 2rem;
+    background-color: var(--darker-bg);
+}
+
+.status-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.status-card {
+    background-color: var(--dark-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.status-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.status-card h4 {
+    color: var(--python-blue);
+    margin-bottom: 0.5rem;
+}
+
+.status-card p {
+    color: var(--muted-text);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--darker-bg);
+    border-top: 1px solid var(--border-color);
+    padding: 2rem;
+    text-align: center;
+}
+
+.footer-content p {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--muted-text);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .nav-menu {
+        gap: 1rem;
+    }
+    
+    .nav-link {
+        font-size: 0.8rem;
+    }
+    
+    .skill-card {
+        width: 130px;
+        padding: 0.8rem;
+    }
+    
+    .skill-icon {
+        font-size: 1.5rem;
+    }
+    
+    .skill-card h4 {
+        font-size: 0.9rem;
+    }
+    
+    .skill-card p {
+        font-size: 0.7rem;
+    }
+    
+
+    
+    .about-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .skill-tags {
+        justify-content: center;
+    }
+} 

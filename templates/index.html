@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1 class="hero-title">
+                <span class="code-comment"># Hello, I'm</span><br>
+                <span class="highlight">Jeet Khanpara</span>
+            </h1>
+            <h2 class="hero-subtitle">AI/ML Engineer</h2>
+            <p class="hero-description">
+                Crafting intelligent solutions with Python, Machine Learning, and AI. 
+                2 years of experience turning data into insights and models into reality.
+            </p>
+            <div class="hero-buttons">
+                <a href="/projects" class="btn btn-primary">view_projects()</a>
+                <a href="/contact" class="btn btn-secondary">get_in_touch()</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="code-block">
+                <div class="code-header">
+                    <span class="code-filename">ml_engineer.py</span>
+                </div>
+                <div class="code-content">
+                    <pre><code><span class="keyword">class</span> <span class="class-name">MLEngineer</span>:
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="param">self</span>):
+        <span class="param">self</span>.name = <span class="string">"Jeet Khanpara"</span>
+        <span class="param">self</span>.experience = <span class="number">2</span>
+        <span class="param">self</span>.skills = [
+            <span class="string">"Python"</span>, <span class="string">"ML"</span>, <span class="string">"AI"</span>,
+            <span class="string">"FastAPI"</span>, <span class="string">"TensorFlow"</span>
+        ]
+    
+    <span class="keyword">def</span> <span class="function">solve_problems</span>(<span class="param">self</span>):
+        <span class="keyword">return</span> <span class="string">"Innovative solutions"</span></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="skills-preview">
+    <div class="container">
+        <h3 class="section-title"># Core Technologies</h3>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">🐍</div>
+                <h4>Python</h4>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🤖</div>
+                <h4>Machine Learning</h4>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🧠</div>
+                <h4>Deep Learning</h4>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">⚙️</div>
+                <h4>AI Engineering</h4>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">⚡</div>
+                <h4>FastAPI</h4>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">📊</div>
+                <h4>Data Science</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %} 

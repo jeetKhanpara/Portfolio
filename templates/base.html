@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Jeet Khanpara - ML/AI Engineer{% endblock %}</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/static/images/favicon.jpg">
+    <link rel="icon" href="/static/images/favicon.jpg">
+    <!-- Styles -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/">
+                    <span class="logo-bracket">[</span>
+                    <span class="logo-name">jeet.khanpara</span>
+                    <span class="logo-bracket">]</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/about" class="nav-link">about()</a></li>
+                <li><a href="/projects" class="nav-link">projects()</a></li>
+                <li><a href="/contact" class="nav-link">contact()</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p># Built with Python 🐍 & FastAPI ⚡</p>
+        </div>
+    </footer>
+</body>
+</html> 

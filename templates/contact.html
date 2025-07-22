@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block title %}Contact - Jeet Khanpara{% endblock %}
+
+{% block content %}
+<section class="contact-hero">
+    <div class="container">
+        <h1 class="page-title"># Get In Touch</h1>
+        <p class="page-subtitle">Let's discuss ML/AI opportunities and collaborations</p>
+    </div>
+</section>
+
+<section class="contact-content">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="contact-section">
+                    <h3 class="section-heading">def contact_me():</h3>
+                    <p>
+                        I'm always interested in discussing new opportunities, 
+                        collaborating on exciting ML/AI projects, or just chatting 
+                        about the latest developments in artificial intelligence.
+                    </p>
+                    <p>
+                        Whether you're looking for an ML engineer, want to discuss 
+                        a project idea, or need consultation on AI implementation, 
+                        feel free to reach out!
+                    </p>
+                </div>
+
+                <div class="contact-methods">
+                    <h4 class="contact-heading">contact_info = {</h4>
+                    <div class="contact-item">
+                        <span class="contact-key">"email":</span>
+                        <a href="mailto:jeet213khanpara@gmail.com" class="contact-value">
+                            "jeet213khanpara@gmail.com"
+                        </a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-key">"linkedin":</span>
+                        <a href="https://www.linkedin.com/in/jeetkhanpara/" class="contact-value">
+                            "linkedin.com/in/jeet-khanpara"
+                        </a>
+                    </div>
+                    <!-- <div class="contact-item">
+                        <span class="contact-key">"github":</span>
+                        <a href="#" class="contact-value">
+                            "github.com/jeet-khanpara"
+                        </a>
+                    </div> -->
+                    <div class="contact-item">
+                        <span class="contact-key">"location":</span>
+                        <span class="contact-value">"Ahmedabad, Bangalore, Pune, Chennai, Hyderabad, Gandhinagar"</span>
+                    </div>
+                    <p class="closing-bracket">}</p>
+                </div>
+            </div>
+
+            <div class="contact-form-section">
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-filename">send_message.py</span>
+                    </div>
+                    <div class="code-content">
+                        <form class="contact-form" action="/contact" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="name">name = </label>
+                                <input type="text" id="name" name="name" required placeholder='"Your Name"'>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">email = </label>
+                                <input type="email" id="email" name="email" required placeholder='"your.email@example.com"'>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">subject = </label>
+                                <input type="text" id="subject" name="subject" required placeholder='"Project Discussion"'>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">message = """</label>
+                                <textarea id="message" name="message" rows="6" required placeholder="Your message here..."></textarea>
+                                <span class="textarea-close">"""</span>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">send_message()</button>
+                        </form>
+                        {% if message %}
+                        <div class="alert {{ message_type }}">
+                            {{ message }}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="availability">
+    <div class="container">
+        <!-- <h3 class="section-title"># Current Status</h3> -->
+        <div class="status-grid">
+            <div class="status-card">
+                <div class="status-icon">🟢</div>
+                <h4>Available for Opportunities</h4>
+                <p>Open to full-time, contract, and consulting work</p>
+            </div>
+            <div class="status-card">
+                <div class="status-icon">🤝</div>
+                <h4>Open for Collaboration</h4>
+                <p>Interested in ML/AI projects and research</p>
+            </div>
+            <div class="status-card">
+                <div class="status-icon">💡</div>
+                <h4>Knowledge Sharing</h4>
+                <p>Happy to discuss AI trends and best practices</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 
