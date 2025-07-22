@@ -6,11 +6,6 @@ import os
 from typing import Optional
 import resend
 from dotenv import load_dotenv
-import logging
-
-# Configure logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
 
 # Load environment variables
 load_dotenv()
@@ -25,9 +20,7 @@ templates = Jinja2Templates(directory="templates")
 
 # Resend configuration
 resend.api_key = os.getenv("RESEND_API_KEY")
-logger.info(f"API Key loaded: {'Yes' if resend.api_key else 'No'}")
-if resend.api_key:
-    logger.info(f"Using API key ending in: ...{resend.api_key[-5:]}")
+print(f"API Key loaded: {'Yes' if resend.api_key else 'No'}")
 
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
@@ -58,7 +51,6 @@ async def contact_post(
 ):
     try:
         if not resend.api_key:
-            logger.error("No Resend API key found!")
             raise ValueError("Resend API key is not set")
 
         # Create and send email using Resend
@@ -75,14 +67,10 @@ async def contact_post(
             <p>{message}</p>
             """
         }
-
-        logger.info("Attempting to send email:")
-        logger.info(f"From: {params['from']}")
-        logger.info(f"To: {params['to']}")
-        logger.info(f"Subject: {params['subject']}")
-
+        
+        print("Sending email with params:", params)
         result = resend.Emails.send(params)
-        logger.info(f"Email sent successfully! Response: {result}")
+        print("Email sent successfully:", result)
 
         return RedirectResponse(
             url="/contact?message=Message sent successfully!&message_type=success",
@@ -90,12 +78,10 @@ async def contact_post(
         )
     except Exception as e:
         error_msg = str(e)
-        logger.error(f"Error sending email: {error_msg}")
+        print(f"Error sending email: {error_msg}")
         return RedirectResponse(
             url=f"/contact?message=Failed to send message: {error_msg}&message_type=error",
             status_code=303
         )
-# Remove the uvicorn run command as Vercel will handle this
-# if __name__ == "__main__":
-#     import uvicorn
-#     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+
+# Remove the uvicorn run command as Vercel will handle this 
